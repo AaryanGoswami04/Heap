@@ -1,19 +1,24 @@
 #include <iostream>
+//Time complexity:O(log n)
 using namespace std;
 class heap{
   public:
   int arr[1000];
   int size;
+  
   heap(){
-  size=0;
-  arr[0]=-1;   
+    size=0;
+    arr[0]=-1;   
   }
+  
 void insert(int val){
   size=size+1;
   int index=size;
   arr[index]=val;
+  
   while(index>1){
     int parent=index/2;
+    
     if(arr[parent]<arr[index]){
       swap(arr[parent],arr[index]);
       index=parent;
@@ -21,12 +26,15 @@ void insert(int val){
     else
       return;
   }
+  
 }
+  
 void print(){
   for(int i=1;i<=size;i++)
     cout<<arr[i]<<" ";
   cout<<endl;
 }
+  
 void deletefromheap(){
   if(size==0){
     cout<<"Nothing to delete"<<endl;
@@ -39,21 +47,21 @@ void deletefromheap(){
   //Ste[ 3:take root to its correct position
   int i=1;
   while(i<size){
-    int leftindex=2*i;
-    int rightindex=2*i+1;
-    if(leftindex<size && arr[i]<arr[leftindex]){
+    int leftindex = 2*i;
+    int rightindex = 2*i+1;
+    if(leftindex < size && arr[i] < arr[leftindex]){
       swap(arr[i], arr[leftindex]);
-      i=leftindex;
+      i = leftindex;
     }
-     else if(rightindex<size && arr[i]<arr[rightindex]){
+     else if(rightindex < size && arr[i] < arr[rightindex]){
       swap(arr[i], arr[rightindex]);
-      i=leftindex;
+      i = rightindex;
     }
      else
-  return;
+        return;
   }
-
 }
+  
 };
 int main() {
   heap h;
@@ -63,6 +71,7 @@ int main() {
   h.insert(52);
   h.insert(54);
   h.print();
+  
   h.deletefromheap();
   h.print();
 }
