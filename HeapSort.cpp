@@ -7,10 +7,10 @@ void heapify(int arr[], int n, int i){
     int largest = i;
     int left = 2*i;  //left child 
     int right = 2*i+1;   //right child
-        if(left < n && arr[largest]<arr[left])
+        if(left <= n && arr[largest]<arr[left])
            largest = left;
     
-        if(right < n && arr[largest]<arr[right])
+        if(right <= n && arr[largest]<arr[right])
             largest = right;
     
         if(largest != i){   //If the largest value at the subtree is not at root, then swap the root and the largest value 
@@ -30,8 +30,8 @@ void HeapSort(int arr[], int n){
   }
 }
 int main() {
-  //arr follows 1 based indexing
- int arr[6]={-1,4,10,18,3,20};
-int n=5;
-HeapSort(arr,n);
+   //arr follows 1 based indexing
+    int arr[6]={-1,4,10,18,3,20};
+    int n=5;
+    HeapSort(arr,n);
 }
